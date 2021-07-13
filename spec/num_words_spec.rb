@@ -25,5 +25,8 @@ describe('#nums_to_words') do
     number = NumberTranslation.new(61)
     expect(number.nums_to_words).to(eq("sixty one"))
   end
-
+  it("returns a mulitple of 100 as text") do
+    number = NumberTranslation.new(200)
+    expect(number.nums_to_words).to(eq("two hundred"))
+  end
 end
