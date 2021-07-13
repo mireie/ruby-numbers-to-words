@@ -29,16 +29,27 @@ describe('#nums_to_words') do
     number = NumberTranslation.new(200)
     expect(number.nums_to_words).to(eq("two hundred"))
   end
-  it("returns a number between 101 and 999 as text") do
+  it("returns a number between 101 and 999 as text: testing 987") do
     number = NumberTranslation.new(987)
     expect(number.nums_to_words).to(eq("nine hundred eighty seven"))
   end
-  it("returns a number between 101 and 999 as text") do
+  it("returns a number between 101 and 999 as text: testing 201") do
     number = NumberTranslation.new(201)
     expect(number.nums_to_words).to(eq("two hundred one"))
   end
-  it("returns a number between 101 and 999 as text") do
+  it("returns a number between 101 and 999 as text: testing 230") do
     number = NumberTranslation.new(230)
     expect(number.nums_to_words).to(eq("two hundred thirty"))
+  end
+  it("returns a hundreds number in the hundredteens") do
+    number = NumberTranslation.new(717)
+    expect(number.nums_to_words).to(eq("seven hundred seventeen"))
+  end
+  
+  
+end
+describe('nums_test') do
+  it("will test all numbers to the max specified and return 'Success!' if there are no errors") do
+    expect(nums_test(999)).to(eq("Fails: 0"))
   end
 end
