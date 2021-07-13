@@ -37,4 +37,8 @@ describe('#nums_to_words') do
     number = NumberTranslation.new(201)
     expect(number.nums_to_words).to(eq("two hundred one"))
   end
+  it("returns a number between 101 and 999 as text") do
+    number = NumberTranslation.new(230)
+    expect(number.nums_to_words).to(eq("two hundred thirty"))
+  end
 end
