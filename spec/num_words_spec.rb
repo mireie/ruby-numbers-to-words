@@ -17,8 +17,8 @@ describe('#nums_to_words') do
     number = NumberTranslation.new(19)
     expect(number.nums_to_words).to(eq("nineteen"))
   end
-
+  it("returns a multiple of ten as text when entered") do
+    number = NumberTranslation.new(30)
+    expect(number.nums_to_words).to(eq("thirty"))
+  end
 end
-
-
-
