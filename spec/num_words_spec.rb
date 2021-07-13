@@ -7,12 +7,10 @@ describe('#nums_to_words') do
     number = NumberTranslation.new(1)
     expect(number.nums_to_words).to(eq("one"))
   end
-
   it("returns 'nine' when 9 is entered") do
     number = NumberTranslation.new(9)
     expect(number.nums_to_words).to(eq("nine"))
   end
-
   it("returns a teenage number when entered") do
     number = NumberTranslation.new(19)
     expect(number.nums_to_words).to(eq("nineteen"))
@@ -45,8 +43,14 @@ describe('#nums_to_words') do
     number = NumberTranslation.new(717)
     expect(number.nums_to_words).to(eq("seven hundred seventeen"))
   end
-  
-  
+  it("returns a 1000") do
+    number = NumberTranslation.new(1000)
+    expect(number.nums_to_words).to(eq("one thousand"))
+  end
+  it("returns a 1000") do
+    number = NumberTranslation.new(8000)
+    expect(number.nums_to_words).to(eq("eight thousand"))
+  end
 end
 describe('nums_test') do
   it("will test all numbers to the max specified and return 'Success!' if there are no errors") do
