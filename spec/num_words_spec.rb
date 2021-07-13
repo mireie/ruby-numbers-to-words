@@ -13,6 +13,11 @@ describe('#nums_to_words') do
     expect(number.nums_to_words).to(eq("nine"))
   end
 
+  it("returns a teenage number when entered") do
+    number = NumberTranslation.new(19)
+    expect(number.nums_to_words).to(eq("nineteen"))
+  end
+
 end
 
 
