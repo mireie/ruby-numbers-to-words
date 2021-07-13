@@ -21,4 +21,9 @@ describe('#nums_to_words') do
     number = NumberTranslation.new(30)
     expect(number.nums_to_words).to(eq("thirty"))
   end
+  it("returns a number less than 100 as text") do
+    number = NumberTranslation.new(61)
+    expect(number.nums_to_words).to(eq("sixty one"))
+  end
+
 end
