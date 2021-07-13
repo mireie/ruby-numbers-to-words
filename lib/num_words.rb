@@ -16,19 +16,21 @@ class NumberTranslation
     if number_array.length === 3
       output_array.push(youth_dictionary.fetch(number_array[0]))
       output_array.push(scale_dictionary.fetch(number_array.length))
-      if number_array[number_array.length-1] === 0
-        return output_array.join(" ")
-      end
     end
     if youth_dictionary.include?(@number)
       return youth_dictionary.fetch(@number)
     elsif elder_dictionary.include?(@number)
       return elder_dictionary.fetch(@number)
     else 
-      output_array.push(elder_dictionary.fetch(number_array[number_array.length-2]*10))
-      output_array.push(youth_dictionary.fetch(number_array[number_array.length-1]))
-    end 
-    return output_array.join(" ")
+      if number_array[number_array.length-1] === 0
+        return output_array.join(" ")
+      end
+      if number_array[number_array.length-2] != 0
+        output_array.push(elder_dictionary.fetch(number_array[number_array.length-2]*10))
+      end
+      output_array.push(youth_dictionary.fetch(number_array[number_array.length-1])) 
+      return output_array.join(" ")
+    end
   end
 end
 
