@@ -7,12 +7,24 @@ class NumberTranslation
   # [1, 0, 0, 0] has to become [[1], [0, 0, 0]]
   # thousands_array = [[number_array[0]], num
   # pop multiples of 3 into arrays for length /3 times
+  # 3.times() do
+  # number_array.each do |number|
+  # another_array.shift(number_array.pop)
+  #
 
   def nums_to_words() 
     number_array = @number.to_s.split("").map! {|item| item.to_i}
     if number_array.length === 4
-      thousands_array = [number_array[0]]
-      return three_array(thousands_array) + " thousand"
+      thousands_array = [number_array.shift]
+      space_array = [three_array(thousands_array), "thousand"] 
+      num_total = 0
+      number_array.each do |num|
+        num_total += num
+      end
+      if num_total !=0
+        space_array.push(three_array(number_array))
+      end
+      return space_array.join(" ")
     end
     three_array(number_array)
   end
@@ -39,7 +51,7 @@ class NumberTranslation
       output_array.push(youth_dictionary.fetch(number_array[0]))
       output_array.push(scale_dictionary.fetch(number_array.length))
     end
-    if youth_dictionary.include?(three_array_value) 
+    if youth_dictionary.include?(three_array_value)
       return youth_dictionary.fetch(three_array_value)
     elsif elder_dictionary.include?(three_array_value)
       return elder_dictionary.fetch(three_array_value)

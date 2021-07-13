@@ -1,6 +1,11 @@
 require('rspec')
 require('num_words')
 
+describe('nums_test') do
+  it("will test all numbers to the max specified and return 'Success!' if there are no errors") do
+    expect(nums_test(999)).to(eq("Fails: 0"))
+  end
+end
 
 describe('#nums_to_words') do
   it("returns 'one' when 1 is entered") do
@@ -43,17 +48,21 @@ describe('#nums_to_words') do
     number = NumberTranslation.new(717)
     expect(number.nums_to_words).to(eq("seven hundred seventeen"))
   end
-  it("returns a 1000") do
+  it("returns 1000") do
     number = NumberTranslation.new(1000)
     expect(number.nums_to_words).to(eq("one thousand"))
   end
-  it("returns a 1000") do
+  it("returns 8000") do
     number = NumberTranslation.new(8000)
     expect(number.nums_to_words).to(eq("eight thousand"))
   end
-end
-describe('nums_test') do
-  it("will test all numbers to the max specified and return 'Success!' if there are no errors") do
-    expect(nums_test(999)).to(eq("Fails: 0"))
+  it("returns 2002") do
+    number = NumberTranslation.new(2002)
+    expect(number.nums_to_words).to(eq("two thousand two"))
   end
+  # it("returns a 2319") do
+  #   number = NumberTranslation.new(2002)
+  #   expect(number.nums_to_words).to(eq("two thousand three hundred nineteen"))
+  # end
+
 end
